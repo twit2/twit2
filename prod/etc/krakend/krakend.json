@@ -24,22 +24,39 @@
         }
       ]
     },
-	{
-      "endpoint": "/v1/auth/register",
-      "method": "POST",
-      "output_encoding": "json",
-      "backend": [
-        {
-          "url_pattern": "/register",
-          "encoding": "json",
-          "sd": "static",
+    {
+        "endpoint": "/v1/auth/register",
+        "method": "POST",
+        "output_encoding": "json",
+        "backend": [
+          {
+            "url_pattern": "/register",
+            "encoding": "json",
+            "sd": "static",
+            "method": "POST",
+            "host": [
+              "http://10.5.3.57:3200"
+            ],
+            "disable_host_sanitize": false
+          }
+        ]
+      },
+      {
+          "endpoint": "/v1/auth/verify",
           "method": "POST",
-          "host": [
-            "http://10.5.3.57:3200"
-          ],
-          "disable_host_sanitize": false
+          "output_encoding": "json",
+          "backend": [
+            {
+              "url_pattern": "/verify",
+              "encoding": "json",
+              "sd": "static",
+              "method": "POST",
+              "host": [
+                "http://10.5.3.57:3200"
+              ],
+              "disable_host_sanitize": false
+            }
+          ]
         }
-      ]
-    }
   ]
 }
