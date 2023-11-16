@@ -1,14 +1,14 @@
 {
   "$schema": "https://www.krakend.io/schema/krakend.json",
   "version": 3,
-  "name": "Twit2 API gateway",
+  "name": "Twit2 API gateway (v1)",
   "timeout": "3000ms",
   "cache_ttl": "300s",
   "output_encoding": "json",
   "port": 8090,
   "endpoints": [
     {
-      "endpoint": "/auth/login",
+      "endpoint": "/v1/auth/login",
       "method": "POST",
       "output_encoding": "json",
       "backend": [
@@ -25,7 +25,7 @@
       ]
     },
 	{
-      "endpoint": "/auth/register",
+      "endpoint": "/v1/auth/register",
       "method": "POST",
       "output_encoding": "json",
       "backend": [
