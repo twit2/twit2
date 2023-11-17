@@ -1,16 +1,16 @@
 # Docker compose file for Twit2
 name: "twit2"
 services:
-    # # KrakenD - api gateway
-    # krakend:
-    #     ports:
-    #         - 8090:8090
-    #     volumes:
-    #         - ./etc/krakend:/etc/krakend/
-    #     image: devopsfaith/krakend
-    #     command: run --config /etc/krakend/krakend.json
-    #     extra_hosts:
-    #         - "host.docker.internal:host-gateway"
+    # KrakenD - api gateway
+    krakend:
+        ports:
+            - 8090:8090
+        volumes:
+            - ./etc/krakend:/etc/krakend/
+        image: devopsfaith/krakend
+        command: run --config /etc/krakend/krakend.json
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
 
     # Message Broker
     rabbitmq:
