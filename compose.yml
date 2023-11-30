@@ -1,6 +1,17 @@
-# Docker compose file for Twit2
+# Docker compose file for Twit2 development
 name: "twit2"
 services:
+    # Proxy server
+    proxy:
+        image: nginx
+        ports:
+            - 8080:80
+        volumes:
+            - ./etc/nginx/nginx.conf:/etc/nginx/nginx.conf
+            - ./etc/nginx/sites-enabled:/etc/nginx/sites-enabled
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
+
     # KrakenD - api gateway
     krakend:
         ports:
@@ -17,6 +28,8 @@ services:
         ports:
             - 5672:5672
             - 15672:15672
+        volumes:
+            - ./data/rabbitmq/logs:/var/log/rabbitmq
         image: rabbitmq:3.12-management
         extra_hosts:
             - "host.docker.internal:host-gateway"
@@ -27,6 +40,6 @@ services:
         ports:
             - 27017:27017
         volumes:
-            - ./data:/data/db
+            - ./data/mongo:/data/db
         extra_hosts:
             - "host.docker.internal:host-gateway"

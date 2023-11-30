@@ -1,4 +1,5 @@
 # Twit2
+Main Twit2 repository.
 
 ## For Developers
 
@@ -10,4 +11,6 @@ docker, nodejs, npm
 
 ### Getting started
 
-Simply CD to `development/` and run `1-fetch-projects.sh` to setup all projects.
+First, run `1-fetch-projects.sh` to get all projects.
+
+Then, run either `2-start-live-dev.sh` or `3-start-dev.sh` to start Twit2 in dev mode.

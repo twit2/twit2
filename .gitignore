@@ -1,0 +1,9 @@
+/projects/*
+!/projects/.gitkeep
+
+# Data stuff
+/data/*/*
+!/data/*/.gitkeep
+
+# Onclone
+scripts/on-clone.sh

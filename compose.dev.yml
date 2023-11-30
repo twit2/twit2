@@ -1,0 +1,9 @@
+name: twit2-dev
+services:
+    # Frontend
+    frontend:
+        build: projects/frontend/Dockerfile.dev
+        ports:
+            - 3000:3000
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
