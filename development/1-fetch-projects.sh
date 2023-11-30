@@ -6,7 +6,7 @@ echo "---------------------------"
 export GIT_PREFIX=https://github.com/twit2
 export PROJECTS=(std-library svc-users svc-auth svc-posts frontend)
 
-if [ "%1" == "--ssh" ]; then
+if [ "$1" == "--ssh" ]; then
     echo Fetching projects using SSH...
     GIT_PREFIX=git@github.com:twit2
 else

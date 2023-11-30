@@ -1,0 +1,32 @@
+# Docker compose file for Twit2 development
+name: "twit2-dev"
+services:
+    # KrakenD - api gateway
+    krakend:
+        ports:
+            - 8090:8090
+        volumes:
+            - ./etc/krakend:/etc/krakend/
+        image: devopsfaith/krakend
+        command: run --config /etc/krakend/krakend.json
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
+
+    # Message Broker
+    rabbitmq:
+        ports:
+            - 5672:5672
+            - 15672:15672
+        image: rabbitmq:3.12-management
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
+
+    # MongoDB
+    mongodb:
+        image: mongodb/mongodb-community-server:latest
+        ports:
+            - 27017:27017
+        volumes:
+            - ./data:/data/db
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
