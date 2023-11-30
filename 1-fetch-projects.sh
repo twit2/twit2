@@ -17,11 +17,11 @@ fi;
 for t in ${PROJECTS[@]}; do
     if [ -e projects/$t ]; then
         echo "Project '$t' exists, syncing changes..."
-        mv projects/$t/__gitstrip projects/$t/.git
+        #mv projects/$t/__gitstrip projects/$t/.git
         cd projects/$t
         git pull
         cd ../..
-        mv projects/$t/.git projects/$t/__gitstrip
+        #mv projects/$t/.git projects/$t/__gitstrip
     else
         echo "Project '$t' has not been cloned - cloning now..."
         mkdir projects/$t
@@ -31,7 +31,7 @@ for t in ${PROJECTS[@]}; do
         [ -e ../../scripts/on-clone.sh ] && ../../scripts/on-clone.sh $t
         cd ../..
 
-        mv projects/$t/.git projects/$t/__gitstrip
+        #mv projects/$t/.git projects/$t/__gitstrip
     fi;
 done
 
