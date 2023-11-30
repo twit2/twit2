@@ -12,7 +12,7 @@ services:
             - DB_NAME=t2-users
             - DB_URL=mongodb://host.docker.internal:27017
             - MQ_URL=amqp://host.docker.internal:5672
-            - HTTP-PORT=3201
+            - HTTP_PORT=3201
 
         depends_on:
             rabbitmq:
@@ -32,7 +32,7 @@ services:
             - MQ_URL=amqp://host.docker.internal:5672
             - HASH_ALGO=bcrypt
             - HASH_ROUNDS=14
-            - HTTP-PORT=3200
+            - HTTP_PORT=3200
 
         depends_on:
             rabbitmq:
@@ -50,7 +50,7 @@ services:
             - DB_NAME=t2-posts
             - DB_URL=mongodb://host.docker.internal:27017
             - MQ_URL=amqp://host.docker.internal:5672
-            - HTTP-PORT=3202
+            - HTTP_PORT=3202
 
         depends_on:
             rabbitmq:
