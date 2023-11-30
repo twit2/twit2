@@ -14,10 +14,19 @@ services:
 
     # Message Broker
     rabbitmq:
-        container_name: rabbitmq
         ports:
             - 5672:5672
             - 15672:15672
         image: rabbitmq:3.12-management
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
+
+    # MongoDB
+    mongodb:
+        image: mongodb/mongodb-community-server:latest
+        ports:
+            - 27017:27017
+        volumes:
+            - ./data:/data/db
         extra_hosts:
             - "host.docker.internal:host-gateway"
