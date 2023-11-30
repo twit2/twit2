@@ -14,7 +14,7 @@ fi;
 
 # Process project pulls
 for t in ${PROJECTS[@]}; do
-    if [ -d projects/$t ]; then
+    if [ -e projects/$t ]; then
         echo "Project '$t' exists, syncing changes..."
         cd projects/$t
         git pull
@@ -24,3 +24,19 @@ for t in ${PROJECTS[@]}; do
         git clone $GIT_PREFIX/$t.git projects/$t
     fi;
 done
+
+echo "STEP 2- Fetch dependencies"
+
+# Install dependencies
+for t in ${PROJECTS[@]}; do
+    if [ ! -e projects/$t ]; then
+        echo "Skipping uncloned project '$t'..."
+        continue
+    fi;
+
+    cd projects/$t
+    npm install
+    cd ..
+done
+
+echo " -- Setup complete! --"
