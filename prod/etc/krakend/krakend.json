@@ -111,6 +111,33 @@
       ]
     },
     {
+      "endpoint": "/api/v1/user/@me",
+      "method": "PATCH",
+      "output_encoding": "no-op",
+      "backend": [
+        {
+          "url_pattern": "/@me",
+          "encoding": "no-op",
+          "sd": "static",
+          "method": "PATCH",
+          "host": [
+            "http://host.docker.internal:3201"
+          ],
+          "disable_host_sanitize": false,
+          "extra_config": {
+            "backend/http": {
+              "return_error_details": "backend_alias"
+            }
+          }
+        }
+      ],
+      "input_headers": [
+        "Authorization",
+        "Content-Type",
+        "Content-Length"
+      ]
+    },
+    {
       "endpoint": "/api/v1/user/{id}",
       "method": "GET",
       "output_encoding": "no-op",
@@ -122,6 +149,33 @@
           "method": "GET",
           "host": [
             "http://host.docker.internal:3201"
+          ],
+          "disable_host_sanitize": false,
+          "extra_config": {
+            "backend/http": {
+              "return_error_details": "backend_alias"
+            }
+          }
+        }
+      ],
+      "input_headers": [
+        "Authorization",
+        "Content-Type",
+        "Content-Length"
+      ]
+    },
+    {
+      "endpoint": "/api/v1/post",
+      "method": "POST",
+      "output_encoding": "no-op",
+      "backend": [
+        {
+          "url_pattern": "/",
+          "encoding": "no-op",
+          "sd": "static",
+          "method": "POST",
+          "host": [
+            "http://host.docker.internal:3202"
           ],
           "disable_host_sanitize": false,
           "extra_config": {
