@@ -3,6 +3,7 @@ services:
     # user service
     svc-users:
         build: projects/svc-users
+        restart: on-failure
         ports:
             - 3201:3201
         extra_hosts:
