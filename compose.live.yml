@@ -1,6 +1,0 @@
-# Live development compose
-name: twit2-livedev
-services:
-    # Frontend
-    frontend:
-        build: projects/frontend/Dockerfile.live

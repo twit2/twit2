@@ -1,3 +1,0 @@
-#!/bin/bash
-echo Starting live dev environment...
-COMPOSE_FILE=compose.yml:compose.dev.yml:compose.live.yml docker compose up
