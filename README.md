@@ -11,6 +11,24 @@ docker, nodejs, npm
 
 ### Getting started
 
-First, run `1-fetch-projects.sh` to get all projects.
+If you simply want to start the core stuff and handle the microservices/frontend yourself, you can simply run `docker compose up`.
 
-Then, run either `2-start-live-dev.sh` or `3-start-dev.sh` to start Twit2 in dev mode.
+Otherwise, run `1-fetch-projects.sh` to get the latest projects and `2-start-dev.sh` to start Twit2 in dev mode.
+
+## Example files
+
+This repository includes a number of example files you must change. If you want to use the default deployment settings, you can simply rename the files without changing anything (except `nginx/sites-enabled`, which you must configure per environment).
+
+The target files will always have `.example` removed from them (e.g. `krakend.example.json` -> `krakend.json`).
+
+Example files should be kept intact, as they are part of the git tree, whilst the custom changes are not.
+
+### etc/krakend/krakend.example.json
+
+This file contains the API gateway URL mappings.
+
+You should modify it if you plan to run the microservices on other hosts.
+
+### etc/nginx/sites-enabled.example
+
+You may want to change how nginx handles serving the backend/frontend.

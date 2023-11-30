@@ -7,3 +7,6 @@
 
 # Onclone
 scripts/on-clone.sh
+
+/etc/krakend/krakend.json
+/etc/nginx/sites-enabled/*
