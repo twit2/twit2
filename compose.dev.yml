@@ -11,3 +11,9 @@ services:
             - DB_NAME=t2-users
             - DB_URL=mongodb://host.docker.internal:27017
             - MQ_URL=amqp://host.docker.internal:5672
+
+        depends_on:
+            - rabbitmq
+        
+        links:
+            - rabbitmq

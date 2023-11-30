@@ -33,6 +33,11 @@ services:
         image: rabbitmq:3.12-management
         extra_hosts:
             - "host.docker.internal:host-gateway"
+        healthcheck:
+            test: ["CMD", "curl", "-f", "http://localhost:15672"]
+            interval: 30s
+            timeout: 10s
+            retries: 5
 
     # MongoDB
     mongodb:
