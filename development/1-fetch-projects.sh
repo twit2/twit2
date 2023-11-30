@@ -17,6 +17,7 @@ fi;
 for t in ${PROJECTS[@]}; do
     if [ -e projects/$t ]; then
         echo "Project '$t' exists, syncing changes..."
+        mv projects/$t/__gitstrip projects/$t/.git
         cd projects/$t
         git pull
         cd ../..
@@ -24,6 +25,7 @@ for t in ${PROJECTS[@]}; do
         echo "Project '$t' has not been cloned - cloning now..."
         mkdir projects/$t
         git clone $GIT_PREFIX/$t.git projects/$t
+        mv projects/$t/.git projects/$t/__gitstrip
     fi;
 done
 
