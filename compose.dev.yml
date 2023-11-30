@@ -13,7 +13,5 @@ services:
             - MQ_URL=amqp://host.docker.internal:5672
 
         depends_on:
-            - rabbitmq
-        
-        links:
-            - rabbitmq
+            rabbitmq:
+                condition: service_healthy
