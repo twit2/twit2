@@ -1,6 +1,6 @@
 name: twit2-dev
 services:
-    # user service
+    # User Service
     svc-users:
         build: projects/svc-users
         restart: on-failure
@@ -10,6 +10,42 @@ services:
             - "host.docker.internal:host-gateway"
         environment:
             - DB_NAME=t2-users
+            - DB_URL=mongodb://host.docker.internal:27017
+            - MQ_URL=amqp://host.docker.internal:5672
+
+        depends_on:
+            rabbitmq:
+                condition: service_healthy
+
+    # Authentication Service
+    svc-auth:
+        build: projects/svc-auth
+        restart: on-failure
+        ports:
+            - 3200:3200
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
+        environment:
+            - DB_NAME=t2-auth
+            - DB_URL=mongodb://host.docker.internal:27017
+            - MQ_URL=amqp://host.docker.internal:5672
+            - HASH_ALGO=bcrypt
+            - HASH_ROUNDS=14
+
+        depends_on:
+            rabbitmq:
+                condition: service_healthy
+
+    # Posts Service
+    svc-posts:
+        build: projects/svc-posts
+        restart: on-failure
+        ports:
+            - 3200:3200
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
+        environment:
+            - DB_NAME=t2-posts
             - DB_URL=mongodb://host.docker.internal:27017
             - MQ_URL=amqp://host.docker.internal:5672
 
