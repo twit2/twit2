@@ -21,6 +21,7 @@ for t in ${PROJECTS[@]}; do
         cd projects/$t
         git pull
         cd ../..
+        mv projects/$t/.git projects/$t/__gitstrip
     else
         echo "Project '$t' has not been cloned - cloning now..."
         mkdir projects/$t
