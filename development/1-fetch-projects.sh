@@ -1,4 +1,4 @@
-@echo off
+#!/bin/bash
 echo "STEP 1- Cloning projects..."
 
 export GIT_PREFIX=https://github.com/twit2
@@ -6,7 +6,7 @@ export GIT_PREFIX=https://github.com/twit2
 if [ "%1" == "--ssh" ]; then
     echo Fetching projects using SSH...
     GIT_PREFIX=git@github.com:twit2
-else;
+else
     echo Fetching projects using HTTPS...
 fi;
 
