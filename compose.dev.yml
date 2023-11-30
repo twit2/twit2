@@ -2,7 +2,7 @@ name: twit2-dev
 services:
     # user service
     svc-users:
-        build: projects/svc-users/Dockerfile
+        build: projects/svc-users
         ports:
             - 3201:3201
         extra_hosts:
