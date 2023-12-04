@@ -379,6 +379,33 @@
         "Content-Type",
         "Content-Length"
       ]
+    },
+    {
+      "endpoint": "/api/v1/cdn/{store}",
+      "method": "POST",
+      "output_encoding": "no-op",
+      "backend": [
+        {
+          "url_pattern": "/{store}",
+          "encoding": "no-op",
+          "sd": "static",
+          "method": "PATCH",
+          "host": [
+            "http://host.docker.internal:3400"
+          ],
+          "disable_host_sanitize": false,
+          "extra_config": {
+            "backend/http": {
+              "return_error_details": "backend_alias"
+            }
+          }
+        }
+      ],
+      "input_headers": [
+        "Authorization",
+        "Content-Type",
+        "Content-Length"
+      ]
     }
   ],
   "extra_config": {
