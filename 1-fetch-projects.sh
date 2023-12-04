@@ -4,7 +4,7 @@ echo "STEP 1- Cloning projects..."
 echo "---------------------------"
 
 export GIT_PREFIX=https://github.com/twit2
-export PROJECTS=(std-library svc-users svc-auth svc-posts frontend)
+export PROJECTS=(std-library svc-users svc-auth svc-posts svc-cdn frontend)
 
 if [ "$1" == "--ssh" ]; then
     echo Fetching projects using SSH...

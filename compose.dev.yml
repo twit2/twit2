@@ -56,6 +56,23 @@ services:
             rabbitmq:
                 condition: service_healthy
 
+    # Posts Service
+    svc-cdn:
+        build: projects/svc-cdn
+        restart: on-failure
+        ports:
+            - 3400:3400
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
+        environment:
+            - MQ_URL=amqp://host.docker.internal:5672
+            - HTTP_PORT=3400
+        volumes:
+            - ./data/cdn/content:/app/content/
+        depends_on:
+            rabbitmq:
+                condition: service_healthy
+
     # Frontend app
     app-frontend:
         build: projects/frontend

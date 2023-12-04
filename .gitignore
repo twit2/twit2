@@ -10,3 +10,9 @@ scripts/on-clone.sh
 
 /etc/krakend/krakend.json
 /etc/nginx/sites-enabled/*
+
+# CDN content
+!/data/cdn/content
+/data/cdn/content/objects/*
+!/data/cdn/content/objects/.gitkeep
+/data/cdn/content/temp
