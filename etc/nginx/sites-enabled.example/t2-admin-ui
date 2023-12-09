@@ -1,0 +1,13 @@
+# Frontend site file
+
+server {
+        listen 80;
+        listen [::]:80;
+
+        server_name admin.tw2-app.local;
+
+        location / {
+                proxy_set_header Host $host;
+                proxy_pass http://host.docker.internal:3500;
+        }
+}
