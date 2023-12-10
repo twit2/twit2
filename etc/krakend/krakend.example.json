@@ -165,6 +165,60 @@
       ]
     },
     {
+      "endpoint": "/api/v1/user/verified/{page}",
+      "method": "GET",
+      "output_encoding": "no-op",
+      "backend": [
+        {
+          "url_pattern": "/verified/{page}",
+          "encoding": "no-op",
+          "sd": "static",
+          "method": "GET",
+          "host": [
+            "http://host.docker.internal:3201"
+          ],
+          "disable_host_sanitize": false,
+          "extra_config": {
+            "backend/http": {
+              "return_error_details": "backend_alias"
+            }
+          }
+        }
+      ],
+      "input_headers": [
+        "Authorization",
+        "Content-Type",
+        "Content-Length"
+      ]
+    },
+    {
+      "endpoint": "/api/v1/user/unverified/{page}",
+      "method": "GET",
+      "output_encoding": "no-op",
+      "backend": [
+        {
+          "url_pattern": "/unverified/{page}",
+          "encoding": "no-op",
+          "sd": "static",
+          "method": "GET",
+          "host": [
+            "http://host.docker.internal:3201"
+          ],
+          "disable_host_sanitize": false,
+          "extra_config": {
+            "backend/http": {
+              "return_error_details": "backend_alias"
+            }
+          }
+        }
+      ],
+      "input_headers": [
+        "Authorization",
+        "Content-Type",
+        "Content-Length"
+      ]
+    },
+    {
       "endpoint": "/api/v1/user/@me",
       "method": "PATCH",
       "output_encoding": "no-op",
