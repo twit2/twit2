@@ -85,3 +85,16 @@ services:
         depends_on:
             rabbitmq:
                 condition: service_healthy
+
+    # Admin frontend app
+    app-admin-frontend:
+        build: projects/admin-frontend
+        restart: on-failure
+        ports:
+            - 3500:3500
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
+
+        depends_on:
+            rabbitmq:
+                condition: service_healthy
