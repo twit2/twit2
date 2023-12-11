@@ -1,0 +1,3 @@
+#!/bin/bash
+echo Starting dev environment...
+COMPOSE_FILE=compose.yml:compose.prod.yml docker compose up

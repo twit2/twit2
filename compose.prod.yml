@@ -1,0 +1,25 @@
+name: twit2-prod
+services:
+    # User Service
+    svc-users:
+        image: gustavofringgaming/t2-svc-users
+
+    # Authentication Service
+    svc-auth:
+        image: gustavofringgaming/t2-svc-auth
+
+    # Posts Service
+    svc-posts:
+        image: gustavofringgaming/t2-svc-posts
+
+    # Posts Service
+    svc-cdn:
+        image: gustavofringgaming/t2-svc-cdn
+
+    # Frontend app
+    app-frontend:
+        image: gustavofringgaming/t2-frontend
+
+    # Admin frontend app
+    app-admin-frontend:
+        image: gustavofringgaming/t2-admin-frontend
