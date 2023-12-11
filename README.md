@@ -11,9 +11,13 @@ docker, nodejs, npm
 
 ### Getting started
 
-If you simply want to start the core stuff and handle the microservices/frontend yourself, you can simply run `docker compose up`.
+If you simply want to start the core stuff and handle the microservices/frontend yourself, you can simply run `docker compose up proxy krakend rabbitmq`.
 
-Otherwise, run `1-fetch-projects.sh` to get the latest projects and `2-start-dev.sh` to start Twit2 in dev mode.
+Otherwise, run `fetch-projects.sh` to get the latest projects and `start-dev.sh` to start Twit2 in dev mode.
+
+## Production
+
+If you are running Twit2 in production, simply run `start-prod.sh`.
 
 ## Example files
 
