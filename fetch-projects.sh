@@ -35,8 +35,8 @@ for t in ${PROJECTS[@]}; do
     fi;
 done
 
-echo "STEP 2- Fetch dependencies"
-echo "--------------------------"
+# echo "STEP 2- Fetch dependencies"
+# echo "--------------------------"
 
 # Install dependencies
 # for t in ${PROJECTS[@]}; do
