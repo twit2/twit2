@@ -39,16 +39,16 @@ echo "STEP 2- Fetch dependencies"
 echo "--------------------------"
 
 # Install dependencies
-for t in ${PROJECTS[@]}; do
-    if [ ! -e projects/$t ]; then
-        echo "Skipping uncloned project '$t'..."
-        continue;
-    fi;
+# for t in ${PROJECTS[@]}; do
+#     if [ ! -e projects/$t ]; then
+#         echo "Skipping uncloned project '$t'..."
+#         continue;
+#     fi;
 
-    echo "Processing '$t'..."
-    cd projects/$t
-    npm install
-    cd ../..
-done
+#     echo "Processing '$t'..."
+#     cd projects/$t
+#     npm install
+#     cd ../..
+# done
 
 echo " -- Setup complete! --"
