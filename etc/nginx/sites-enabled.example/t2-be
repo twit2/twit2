@@ -6,6 +6,7 @@ server {
 
     server_name api.tw2-app.local;
 
+    # Comment out when certificate has been acquired
     location /.well-known/acme-challenge/ {
         root /var/www/certbot;
     }
@@ -16,13 +17,14 @@ server {
 }
 
 server {
-    listen 443 default_server ssl http2;
+    listen 443 ssl http2;
     listen [::]:443 ssl http2;
 
     server_name api.tw2-app.local;
 
-    ssl_certificate /etc/nginx/ssl/live/api.tw2-app.local/fullchain.pem;
-    ssl_certificate_key /etc/nginx/ssl/live/api.tw2-app.local/privkey.pem;
+    # Uncomment when certificate has been acquired
+    # ssl_certificate /etc/nginx/ssl/live/api.tw2-app.local/fullchain.pem;
+    # ssl_certificate_key /etc/nginx/ssl/live/api.tw2-app.local/privkey.pem;
 
     location / {
         proxy_set_header Host $host;
