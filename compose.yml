@@ -6,11 +6,20 @@ services:
         image: nginx
         ports:
             - 8080:80
+            - 8443:443
         volumes:
             - ./etc/nginx/nginx.conf:/etc/nginx/nginx.conf
             - ./etc/nginx/sites-enabled:/etc/nginx/sites-enabled
+            - ./etc/certbot/www/:/var/www/certbot/:ro
         extra_hosts:
             - "host.docker.internal:host-gateway"
+
+    # Certbot - For https
+    certbot:
+        image: certbot/certbot:latest
+        volumes:
+        - ./etc/certbot/www/:/var/www/certbot/:rw
+        - ./etc/certbot/conf/:/etc/letsencrypt/:rw
 
     # KrakenD - api gateway
     krakend:

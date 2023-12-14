@@ -16,3 +16,11 @@ scripts/on-clone.sh
 /data/cdn/content/objects/*
 !/data/cdn/content/objects/.gitkeep
 /data/cdn/content/temp
+
+# Certbot content
+
+/etc/certbot/conf/*
+!/etc/certbot/conf/.gitkeep
+
+/etc/certbot/www/*
+!/etc/certbot/www/.gitkeep
