@@ -3,23 +3,14 @@ name: "twit2"
 services:
     # Proxy server
     proxy:
-        image: nginx
+        image: caddy
         ports:
             - 8080:80
             - 8443:443
         volumes:
-            - ./etc/nginx/nginx.conf:/etc/nginx/nginx.conf
-            - ./etc/nginx/sites-enabled:/etc/nginx/sites-enabled
-            - ./etc/certbot/www/:/var/www/certbot/:ro
+            - ./etc/caddy/Caddyfile:/etc/caddy/Caddyfile
         extra_hosts:
             - "host.docker.internal:host-gateway"
-
-    # Certbot - For https
-    certbot:
-        image: certbot/certbot:latest
-        volumes:
-        - ./etc/certbot/www/:/var/www/certbot/:rw
-        - ./etc/certbot/conf/:/etc/letsencrypt/:rw
 
     # KrakenD - api gateway
     krakend:

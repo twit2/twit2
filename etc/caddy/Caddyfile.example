@@ -1,0 +1,21 @@
+#########################################################
+# NOTICE!                                               #
+# If you are planning to use HTTPS (which you SHOULD),  #
+# remove the `http://` prefix from ALL domains.         #
+#########################################################
+
+http://admin.tw2-app.local {
+    reverse_proxy host.docker.internal:3500
+}
+
+http://tw2-app.local {
+    reverse_proxy host.docker.internal:3000
+}
+
+http://api.tw2-app.local {
+    reverse_proxy host.docker.internal:8090
+}
+
+http://cdn.tw2-app.local {
+    reverse_proxy host.docker.internal:3400
+}

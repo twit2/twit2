@@ -21,7 +21,7 @@ If you are running Twit2 in production, simply run `start-prod.sh`.
 
 ## Example files
 
-This repository includes a number of example files you must change. If you want to use the default deployment settings, you can simply rename the files without changing anything (except `nginx/sites-enabled`, which you must configure per environment).
+This repository includes a number of example files you must change. If you want to use the default deployment settings, you can simply rename the files without changing anything (except `etc/caddy/Caddyfile`, which you must configure per environment).
 
 The target files will always have `.example` removed from them (e.g. `krakend.example.json` -> `krakend.json`).
 
@@ -33,6 +33,10 @@ This file contains the API gateway URL mappings.
 
 You should modify it if you plan to run the microservices on other hosts.
 
-### etc/nginx/sites-enabled.example
+### etc/caddy/Caddyfile
 
-You may want to change how nginx handles serving the backend/frontend.
+You may want to change how caddy handles serving the backend/frontend.
+
+This includes changing the URLs at which various parts of the Twit2 application are served.
+
+See `etc/caddy/Caddyfile` for instructions on how to enable HTTPS.
