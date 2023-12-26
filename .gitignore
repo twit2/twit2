@@ -9,18 +9,10 @@
 scripts/on-clone.sh
 
 /etc/krakend/krakend.json
-/etc/nginx/sites-enabled/*
+/etc/caddy/Caddyfile
 
 # CDN content
 !/data/cdn/content
 /data/cdn/content/objects/*
 !/data/cdn/content/objects/.gitkeep
 /data/cdn/content/temp
-
-# Certbot content
-
-/etc/certbot/conf/*
-!/etc/certbot/conf/.gitkeep
-
-/etc/certbot/www/*
-!/etc/certbot/www/.gitkeep
