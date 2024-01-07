@@ -5,8 +5,8 @@ services:
     proxy:
         image: caddy
         ports:
-            - 8080:80
-            - 8443:443
+            - 80:80
+            - 443:443
         volumes:
             - ./etc/caddy/Caddyfile:/etc/caddy/Caddyfile
         extra_hosts:
