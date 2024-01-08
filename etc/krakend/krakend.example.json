@@ -327,6 +327,33 @@
       ]
     },
     {
+      "endpoint": "/api/v1/user/relations/{relation}/{username}/{page}",
+      "method": "GET",
+      "output_encoding": "no-op",
+      "backend": [
+        {
+          "url_pattern": "/relations/{relation}/{username}/{page}",
+          "encoding": "no-op",
+          "sd": "static",
+          "method": "GET",
+          "host": [
+            "http://host.docker.internal:3201"
+          ],
+          "disable_host_sanitize": false,
+          "extra_config": {
+            "backend/http": {
+              "return_error_details": "backend_alias"
+            }
+          }
+        }
+      ],
+      "input_headers": [
+        "Authorization",
+        "Content-Type",
+        "Content-Length"
+      ]
+    },
+    {
       "endpoint": "/api/v1/post",
       "method": "POST",
       "output_encoding": "no-op",
@@ -519,7 +546,7 @@
   "extra_config": {
     "security/cors": {
       "allow_origins": [
-        "*"
+        "YOUR_DOMAINS_HERE"
       ],
       "expose_headers": [
         "Content-Length",
