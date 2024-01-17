@@ -19,3 +19,7 @@ http://api.tw2-app.local {
 http://cdn.tw2-app.local {
     reverse_proxy host.docker.internal:3400
 }
+
+http://ws.tw2-app.local {
+    reverse_proxy host.docker.internal:3700
+}
