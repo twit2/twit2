@@ -111,6 +111,33 @@
       ]
     },
     {
+      "endpoint": "/api/v1/auth/password",
+      "method": "PATCH",
+      "output_encoding": "no-op",
+      "backend": [
+        {
+          "url_pattern": "/password",
+          "encoding": "no-op",
+        "sd": "static",
+          "method": "PATCH",
+          "host": [
+            "http://host.docker.internal:3200"
+          ],
+          "disable_host_sanitize": false,
+          "extra_config": {
+            "backend/http": {
+              "return_error_details": "backend_alias"
+            }
+          }
+        }
+      ],
+      "input_headers": [
+        "Authorization",
+        "Content-Type",
+        "Content-Length"
+      ]
+    },
+    {
       "endpoint": "/api/v1/user/@me",
       "method": "GET",
       "output_encoding": "no-op",
